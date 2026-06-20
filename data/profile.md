@@ -2,7 +2,7 @@
 
 ## 基本信息
 - name: Xu Shuo
-- title: Creative Developer
+- title: Front-end Developer
 - email: imleonrd@163.com
 - location: 武汉，中国
 - available: true

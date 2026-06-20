@@ -18,7 +18,7 @@
 
 ## 严选便利店小程序(前台)
 - category: app
-- stack: ["Uni-App","vue2",'Echarts','Vant']
+- stack: ["Uni-App","vue2","Echarts","Vant"]
 - url: https://github.com/XuWeiXuan7/yx_shop
 
 ## 严选便利店小程序(后台)
