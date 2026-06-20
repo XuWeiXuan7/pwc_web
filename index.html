@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-md="title">Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+    <!-- 全局粒子背景 Canvas -->
+    <canvas id="particleCanvas" class="particle-canvas"></canvas>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo" data-md="nav_logo">Portfolio<span>.</span></a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active" data-md="nav_home">首页</a></li>
+                <li><a href="#about" class="nav-link" data-md="nav_about">关于</a></li>
+                <li><a href="#skills" class="nav-link" data-md="nav_skills">技能</a></li>
+                <li><a href="#projects" class="nav-link" data-md="nav_projects">作品</a></li>
+                <li><a href="#contact" class="nav-link" data-md="nav_contact">联系</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============ HERO ============ -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="hero-greeting" data-md="hero_greeting">你好，我是</p>
+            <h1 class="hero-title">
+                <span class="typewriter" data-md="hero_title_placeholder">Portfolio</span>
+                <span class="cursor">|</span>
+            </h1>
+            <p class="hero-subtitle" data-md="hero_subtitle"></p>
+            <p class="hero-desc" data-md="hero_desc"></p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <span data-md="hero_btn_primary">查看作品</span>
+                    <div class="btn-glow"></div>
+                </a>
+                <a href="#contact" class="btn btn-outline">
+                    <span data-md="hero_btn_outline">联系我</span>
+                </a>
+            </div>
+            <div class="hero-stats" id="heroStats"></div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <p data-md="scroll_hint">向下滚动</p>
+        </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag" data-md="about_tag">关于我</span>
+                <h2 class="section-title" data-md="about_title">让我来介绍一下自己</h2>
+                <div class="section-glow"></div>
+            </div>
+            <div class="about-content reveal">
+                <div class="about-image">
+                    <div class="image-wrap">
+                        <div class="image-placeholder">
+                            <span data-md="about_avatar">XS</span>
+                        </div>
+                        <div class="image-ring"></div>
+                        <div class="image-ring image-ring-2"></div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3 data-md="about_h3">一位热爱创造的开发者</h3>
+                    <div data-md="about_body" class="about-body"></div>
+                    <div class="about-info" id="aboutInfo"></div>
+                    <a href="#" class="btn btn-primary">
+                        <span data-md="about_btn">下载简历</span>
+                        <div class="btn-glow"></div>
+                    </a>
+                    <a href="#" class="btn btn-outline" id="previewResumeBtn">
+                        <span>预览简历</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ 简历预览 Modal ============ -->
+    <div class="modal" id="resumeModal" aria-hidden="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal-dialog" role="dialog" aria-modal="true">
+            <button class="modal-close" id="resumeModalClose" aria-label="关闭">&times;</button>
+            <div class="modal-header">
+                <h3>简历预览</h3>
+                <a href="#" class="btn btn-primary btn-sm" id="resumeModalDownload">
+                    <span>下载 PDF</span>
+                </a>
+            </div>
+            <div class="modal-body">
+                <iframe id="resumeIframe" src="" title="简历预览" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ SKILLS ============ -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag" data-md="skills_tag">我的技能</span>
+                <h2 class="section-title" data-md="skills_title">我能做什么</h2>
+                <div class="section-glow"></div>
+            </div>
+            <div class="skills-grid" id="skillsGrid"></div>
+        </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag" data-md="projects_tag">我的作品</span>
+                <h2 class="section-title" data-md="projects_title">最新项目展示</h2>
+                <div class="section-glow"></div>
+            </div>
+            <div class="filter-tabs" id="filterTabs"></div>
+            <div class="projects-grid" id="projectsGrid"></div>
+        </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag" data-md="contact_tag">联系方式</span>
+                <h2 class="section-title" data-md="contact_title">让我们开始合作吧</h2>
+                <!-- <div class="section-glow"></div> -->
+            </div>
+            <div class="contact-content reveal">
+                <div class="contact-info" id="contactInfo">
+                    <!-- 动态渲染 -->
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="你的姓名" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="你的邮箱" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="subject" placeholder="主题" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="5" placeholder="你的消息..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <span data-md="contact_btn">发送消息</span>
+                        <div class="btn-glow"></div>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p data-md="footer_copyright">&copy; 2026 Portfolio</p>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" title="回到顶部">
+        <span>&uarr;</span>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
