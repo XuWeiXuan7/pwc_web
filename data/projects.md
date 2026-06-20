@@ -12,7 +12,7 @@
 - url: https://github.com/XuWeiXuan7/pyg_web
 
 ## 优购电商平台(后台)
-- category: app
+- category: web
 - stack: ["Vue2","Element UI","Axios","Echarts","vue-admin-template"]
 - url: https://github.com/XuWeiXuan7/pyg_ht
 
@@ -32,7 +32,7 @@
 - url: https://github.com/XuWeiXuan7/Blog-WeiXuan
 
 ## BBS论坛平台
-- category: app
+- category: web
 - stack: ["ASP.NET","SQL Server"]
 - url: https://github.com/XuWeiXuan7/BBS_web
 
