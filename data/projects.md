@@ -17,7 +17,7 @@
 - url: https://github.com/XuWeiXuan7/pyg_ht
 
 ## 严选便利店小程序(前台)
-- category: app
+- category: xcx
 - stack: ["Uni-App","vue2","Echarts","Vant"]
 - url: https://github.com/XuWeiXuan7/yx_shop
 
@@ -27,9 +27,8 @@
 - url: https://github.com/XuWeiXuan7/yx_zhongtai
 
 ## 严选便利店小程序(后端)
-- category: web
+- category: hd
 - stack: ["Node.js","Express","MySQL"]
-- url: https://github.com/XuWeiXuan7/Blog-WeiXuan
 
 ## BBS论坛平台
 - category: web

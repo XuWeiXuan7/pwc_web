@@ -157,7 +157,8 @@ function parseFieldLine(line) {
         try {
             val = JSON.parse(val);
         } catch (e) {
-            /* keep string */ }
+            /* keep string */
+        }
     } else if (val === 'true' || val === 'false') {
         val = val === 'true';
     } else if (/^\d+$/.test(val)) {
@@ -363,8 +364,7 @@ async function bootstrapFromMarkdown() {
 
         // ---- 保存打字机标题数组到全局 ----
         window.__typewriterTitles = Array.isArray(hero.typewriter_titles) ?
-            hero.typewriter_titles :
-            [(basic.name || 'Portfolio') + ' · ' + (basic.title || '')];
+            hero.typewriter_titles : [(basic.name || 'Portfolio') + ' · ' + (basic.title || '')];
 
         // ---- Skills ----
         const skillsGrid = document.getElementById('skillsGrid');
@@ -402,7 +402,7 @@ async function bootstrapFromMarkdown() {
         if (projectsGrid) {
             projectsGrid.innerHTML = projectsSecs.map(p => {
                 const stack = Array.isArray(p.fields.stack) ? p.fields.stack : [];
-                const isCompany = p.fields.category === 'company';
+                const isCompany = p.fields.category === 'company' || p.fields.category === 'hd'
                 const url = p.fields.url || '#project-' + encodeURIComponent(p.title || '');
                 const detailBtn = !isCompany ?
                     `<a href="${escapeHtml(url)}" class="project-detail-btn" target="_blank" rel="noopener">
@@ -516,6 +516,8 @@ function catLabel(cat) {
         app: '应用',
         design: '设计',
         company: '公司项目',
+        xcx: '小程序',
+        hd: '后端',
         all: '全部'
     };
     return map[cat] || cat;
